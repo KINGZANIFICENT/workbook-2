@@ -10,12 +10,12 @@ public class HighScoreWins {
 
         // 1) Split into [teamPart, scorePart] around the pipe character
         String[] parts = input.split("\\|");
-        String teamPart  = parts[0];   // e.g. "Home:Visitor"
+        String teamPart = parts[0];   // e.g. "Home:Visitor"
         String scorePart = parts[1];   // e.g. "21:9"
 
         // 2) Split the team names around the colon
         String[] teams = teamPart.split(":");
-        String homeTeam    = teams[0];
+        String homeTeam = teams[0];
         String visitorTeam = teams[1];
 
         // 3) Split the scores around the colon and convert to integers
