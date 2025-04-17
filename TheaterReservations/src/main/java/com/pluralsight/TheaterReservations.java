@@ -21,10 +21,13 @@ public class TheaterReservations {
         String dateInput = scanner.nextLine().trim();
 
         // 3) Parse into LocalDate using a formatter
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
+        DateTimeFormatter inputformatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
+        DateTimeFormatter outputformatter = DateTimeFormatter.ofPattern("yyyy/dd/MM");
+
+
         LocalDate showDate;
         try {
-            showDate = LocalDate.parse(dateInput, formatter);
+            showDate = LocalDate.parse(dateInput, inputformatter);
         } catch (DateTimeParseException ex) {
             System.out.println("Invalid date format. Please use MM/dd/yyyy.");
             scanner.close();
@@ -43,7 +46,7 @@ public class TheaterReservations {
                 "%d %s reserved for %s under %s, %s%n",
                 count,
                 ticketWord,
-                showDate.format(formatter),
+                showDate.format(outputformatter),
                 lastName,
                 firstName
         );
